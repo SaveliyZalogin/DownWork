@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".presentation.auth.LoginFragment"
+    android:orientation="vertical"
+    android:paddingTop="150dp"
+    android:paddingStart="15dp"
+    android:paddingEnd="15dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.Material3.DisplaySmall"
+        android:textColor="?attr/colorOnBackground"
+        android:text="Авторизация"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="64dp"/>
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="E-mail"
+        android:drawableStart="@drawable/email"
+        android:drawablePadding="10dp"
+        android:drawableTint="?attr/colorOnBackground"
+        android:background="@drawable/edittext_background"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="16dp"/>
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:drawableStart="@drawable/outline_lock_24"
+        android:drawablePadding="10dp"
+        android:drawableTint="?attr/colorOnBackground"
+        android:background="@drawable/edittext_background"
+        android:paddingStart="15dp"
+        android:paddingEnd="15dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="20dp"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="32dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_background"
+        android:text="Войти"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textAppearance="@style/TextAppearance.Material3.TitleSmall"/>
+
+    <Space
+        android:layout_width="wrap_content"
+        android:layout_height="64dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textAlignment="center"
+            android:text="Нет аккаунта?"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/registrationButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:text="Зарегистрироваться"
+            android:textAllCaps="false"
+            android:textColor="?attr/colorOnBackground"
+            android:textAppearance="@style/TextAppearance.Material3.TitleSmall"
+            android:layout_gravity="center_horizontal"/>
+    </LinearLayout>
+
+
+</LinearLayout>
