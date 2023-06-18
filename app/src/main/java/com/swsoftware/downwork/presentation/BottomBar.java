@@ -1,5 +1,10 @@
 package com.swsoftware.downwork.presentation;
 
+import android.animation.Animator;
+import android.animation.AnimatorInflater;
+import android.animation.AnimatorSet;
+import android.animation.LayoutTransition;
+import android.animation.ValueAnimator;
 import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
@@ -48,6 +53,13 @@ public class BottomBar extends BlurView {
         searchBar = findViewById(R.id.searchBar);
         searchBar.getBackground().setAlpha(204);
         bottomNavigation = findViewById(R.id.bottomNavigation);
+
+        Animator slideIn = AnimatorInflater.loadAnimator(getContext(), R.animator.slide_in);
+        Animator slideOut = AnimatorInflater.loadAnimator(getContext(), R.animator.slide_out);
+        LayoutTransition layoutTransition = new LayoutTransition();
+        layoutTransition.setAnimator(LayoutTransition.DISAPPEARING, slideOut);
+        layoutTransition.setAnimator(LayoutTransition.APPEARING, slideIn);
+        ((LinearLayout) this.getChildAt(0)).setLayoutTransition(layoutTransition);
     }
 
     public void hide() {

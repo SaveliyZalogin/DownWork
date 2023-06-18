@@ -54,6 +54,7 @@ public class ChatActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat);
 
         preferences = getSharedPreferences("userData", Context.MODE_PRIVATE);
+        int userId = preferences.getInt("userId", -1);
 
         Intent intent = getIntent();
         chatId = intent.getIntExtra("chatId", -1);
@@ -82,7 +83,7 @@ public class ChatActivity extends AppCompatActivity {
             public void onChanged(List<MessageDto> messageDtoList) {
                 if (messageDtoList.size() > 0) {
                     messages.addAll(messageDtoList);
-                    MessagesAdapter messagesAdapter = new MessagesAdapter(messages);
+                    MessagesAdapter messagesAdapter = new MessagesAdapter(messages, userId);
                     recyclerView.setAdapter(messagesAdapter);
                 }
             }
@@ -111,11 +112,12 @@ public class ChatActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (messageEditText.getText().length() > 0) {
                     MessageDto messageDto = new MessageDto(
-                            preferences.getInt("userId", -1), messageEditText.getText().toString());
+                            userId, messageEditText.getText().toString());
                     messages.add(messageDto);
                     recyclerView.getAdapter().notifyItemInserted(messages.size() - 1);
                     recyclerView.smoothScrollToPosition(messages.size() - 1);
                     messageEditText.setText("");
+                    Log.d("messages", messages.toString());
                 }
             }
         });
